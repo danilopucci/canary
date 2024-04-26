@@ -35,7 +35,8 @@
       "name": "mpir",
       "platform": "windows"
     },
-    "boost-beast"
+    "boost-beast",
+	"openssl"
   ],
   "builtin-baseline": "98a562a04cd03728f399e79e1b37bcccb5a69b37"
 }
