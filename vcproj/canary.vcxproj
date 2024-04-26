@@ -140,6 +140,7 @@
     <ClInclude Include="..\src\lua\functions\core\libs\logger_functions.hpp" />
     <ClInclude Include="..\src\lua\functions\core\libs\metrics_functions.hpp" />
     <ClInclude Include="..\src\lua\functions\core\network\core_network_functions.hpp" />
+    <ClInclude Include="..\src\lua\functions\core\network\httpclient_functions.hpp" />
     <ClInclude Include="..\src\lua\functions\core\network\network_message_functions.hpp" />
     <ClInclude Include="..\src\lua\functions\core\network\webhook_functions.hpp" />
     <ClInclude Include="..\src\lua\functions\creatures\combat\combat_functions.hpp" />
@@ -205,6 +206,8 @@
     <ClInclude Include="..\src\protobuf\kv.pb.h" />
     <ClInclude Include="..\src\security\rsa.hpp" />
     <ClInclude Include="..\src\server\network\connection\connection.hpp" />
+    <ClInclude Include="..\src\server\network\httpclient\httpclient.hpp" />
+    <ClInclude Include="..\src\server\network\httpclient\httpclientlib.h" />
     <ClInclude Include="..\src\server\network\message\networkmessage.hpp" />
     <ClInclude Include="..\src\server\network\message\outputmessage.hpp" />
     <ClInclude Include="..\src\server\network\protocol\protocol.hpp" />
@@ -331,6 +334,7 @@
     <ClCompile Include="..\src\lua\functions\core\libs\result_functions.cpp" />
     <ClCompile Include="..\src\lua\functions\core\libs\logger_functions.cpp" />
     <ClCompile Include="..\src\lua\functions\core\libs\metrics_functions.cpp" />
+    <ClCompile Include="..\src\lua\functions\core\network\httpclient_functions.cpp" />
     <ClCompile Include="..\src\lua\functions\core\network\network_message_functions.cpp" />
     <ClCompile Include="..\src\lua\functions\core\network\webhook_functions.cpp" />
     <ClCompile Include="..\src\lua\functions\creatures\combat\combat_functions.cpp" />
@@ -398,6 +402,7 @@
     <ClCompile Include="..\src\security\argon.cpp" />
     <ClCompile Include="..\src\security\rsa.cpp" />
     <ClCompile Include="..\src\server\network\connection\connection.cpp" />
+    <ClCompile Include="..\src\server\network\httpclient\httpclient.cpp" />
     <ClCompile Include="..\src\server\network\message\networkmessage.cpp" />
     <ClCompile Include="..\src\server\network\message\outputmessage.cpp" />
     <ClCompile Include="..\src\server\network\protocol\protocol.cpp" />
@@ -480,7 +485,7 @@
   </PropertyGroup>
   <PropertyGroup Label="Vcpkg">
     <VcpkgEnableManifest>true</VcpkgEnableManifest>
-    <VcpkgAutoLink>false</VcpkgAutoLink>
+    <VcpkgAutoLink>true</VcpkgAutoLink>
   </PropertyGroup>
   <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <VcpkgInstalledDir>vcpkg_installed</VcpkgInstalledDir>
@@ -506,7 +511,7 @@
       <SupportJustMyCode>true</SupportJustMyCode>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <WholeProgramOptimization>true</WholeProgramOptimization>
-      <IncludeInUnityFile>true</IncludeInUnityFile>
+      <IncludeInUnityFile>false</IncludeInUnityFile>
       <OpenMPSupport>true</OpenMPSupport>
       <LanguageStandard_C>Default</LanguageStandard_C>
       <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
@@ -540,7 +545,7 @@
       <SupportJustMyCode>true</SupportJustMyCode>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <WholeProgramOptimization>true</WholeProgramOptimization>
-      <IncludeInUnityFile>true</IncludeInUnityFile>
+      <IncludeInUnityFile>false</IncludeInUnityFile>
       <OpenMPSupport>true</OpenMPSupport>
       <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>

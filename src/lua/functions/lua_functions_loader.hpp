@@ -28,6 +28,11 @@ class KV;
 
 #define reportErrorFunc(a) reportError(__FUNCTION__, a, true)
 
+namespace HttpClientLib {
+	class HttpRequest;
+	using HttpRequest_ptr = std::shared_ptr<HttpRequest>;
+} // namespace HttpClientLib
+
 class LuaFunctionsLoader {
 public:
 	static void load(lua_State* L);
@@ -214,6 +219,13 @@ public:
 		auto userData = static_cast<std::shared_ptr<T>*>(lua_newuserdata(L, sizeof(std::shared_ptr<T>)));
 		// Copy constructor, bumps ref count.
 		new (userData) std::shared_ptr<T>(value);
+	}
+
+	// Shared Ptr
+	template<class T>
+	static void pushSharedPtr(lua_State* L, T value)
+	{
+		new (lua_newuserdata(L, sizeof(T))) T(std::move(value));
 	}
 
 protected:
